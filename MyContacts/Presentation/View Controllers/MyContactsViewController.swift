@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MyContactsViewController: UIViewController {
+
+    // MARK: - Properties
 
     override func viewDidLoad() {
         super.viewDidLoad()
