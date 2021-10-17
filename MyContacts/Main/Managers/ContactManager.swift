@@ -28,7 +28,6 @@ class ContactFetcher {
 
     // Ask the user to grant or deny access to contact data on a per-app basis
     private func requestContactsAccess(completion: @escaping (Bool) -> Void) {
-
         // Use the asynchronous method requestAccess(for:completionHandler:) in order to request permissions
         self.contactStore.requestAccess(for: .contacts) { granted, error in
             if let error = error {
@@ -50,12 +49,10 @@ class ContactFetcher {
 extension ContactFetcher: ContactFetcherProtocol {
 
     func requestContacts(completion: @escaping (Result<[Contact], RequestError>) -> Void) {
-
         var contactList: [Contact] = [] // Retrieved contact data
 
         self.requestContactsAccess { access in
             if access {
-
                 let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
                 let fetchRequest = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
 
@@ -64,8 +61,6 @@ extension ContactFetcher: ContactFetcherProtocol {
 
                 do {
                     try CNContactStore().enumerateContacts(with: fetchRequest) { (contact, stopPointer ) -> Void in
-                        print(contact.givenName, "-", contact.familyName, "-", contact.phoneNumbers.first?.value.stringValue ?? "No number")
-
                         let newContact = Contact(name: contact.givenName, surname: contact.familyName, phoneNumber: contact.phoneNumbers.first?.value.stringValue)
                         contactList.append(newContact)
                     }

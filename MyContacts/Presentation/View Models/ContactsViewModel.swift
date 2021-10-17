@@ -38,19 +38,17 @@ extension ContactsViewModel: ContactsManagerProtocol {
     }
 
     func fetchContacts(completion: @escaping (Bool) -> Void) {
-
         self.contactFetcher.requestContacts { [weak self] result in
             guard let `self` = self else { return }
             switch result {
             case .success(let fetchedContacts):
-                print("Fetch finished: ", fetchedContacts.count)
+                print("Retrieved ", fetchedContacts.count, " contacts.")
                 self.contactList = fetchedContacts
                 completion(true)
             case .failure(let error):
                 print("Request failed: ", error)
                 completion(false)
             }
-
         }
     }
 
