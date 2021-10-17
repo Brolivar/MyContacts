@@ -16,10 +16,18 @@ protocol ContactProtocol {
     func getPhoneNumber() -> String?
 }
 
+// Note: Alternatively we could import the Contacts API and leave this be a CNContact that holds all the information
+// I prefered this way for isolation purposes and bring it closer to a real scenario where we would be using our own object (with just the properties we need)
 struct Contact {
     private var name: String?
     private var surname: String?
     private var phoneNumber: String?
+
+    init(name: String?, surname: String?, phoneNumber: String?) {
+        self.name = name
+        self.surname = surname
+        self.phoneNumber = phoneNumber 
+    }
 }
 
 // MARK: - Contact Protocol Extension
