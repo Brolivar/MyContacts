@@ -1,6 +1,6 @@
 # MyContacts
 
-A simple iOS App written on Swift, that displays a lisf of contacts of a phone, containing name, surname and phone number. The contacts are retrieved the system provided framework.
+A simple iOS App written on Swift, that displays a lisf of contacts of a phone, containing name, surname and phone number. The contacts are retrieved using the system provided framework.
 
 
 ## Structure
