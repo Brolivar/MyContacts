@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,7 @@
 		BC06F104271B3B0D00A2F171 /* MyContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC06F103271B3B0D00A2F171 /* MyContactsTests.swift */; };
 		BC06F10F271B3B0D00A2F171 /* MyContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC06F10E271B3B0D00A2F171 /* MyContactsUITests.swift */; };
 		BC06F128271B4A8400A2F171 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC06F127271B4A8400A2F171 /* ContactsViewModel.swift */; };
-		BC06F12A271B4A9500A2F171 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC06F129271B4A9500A2F171 /* ContactManager.swift */; };
+		BC06F12A271B4A9500A2F171 /* ContactFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC06F129271B4A9500A2F171 /* ContactFetcher.swift */; };
 		BC06F12C271B4AB400A2F171 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC06F12B271B4AB400A2F171 /* Contact.swift */; };
 		F90FA1CA45A6C7C0177CB479 /* Pods_MyContactsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FD4E1713F1D99446AFF8B1 /* Pods_MyContactsTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,7 +60,7 @@
 		BC06F10E271B3B0D00A2F171 /* MyContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContactsUITests.swift; sourceTree = "<group>"; };
 		BC06F110271B3B0D00A2F171 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC06F127271B4A8400A2F171 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
-		BC06F129271B4A9500A2F171 /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		BC06F129271B4A9500A2F171 /* ContactFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFetcher.swift; sourceTree = "<group>"; };
 		BC06F12B271B4AB400A2F171 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		C2FF678EDDF55CF2840C75B1 /* Pods-MyContacts-MyContactsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyContacts-MyContactsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyContacts-MyContactsUITests/Pods-MyContacts-MyContactsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +103,6 @@
 				B55A8001E2EC6073D1A68BB6 /* Pods-MyContactsTests.debug.xcconfig */,
 				B07A9CE9C83C589037E9C08B /* Pods-MyContactsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -171,9 +170,6 @@
 		BC06F11D271B403500A2F171 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BC06F123271B408700A2F171 /* Extensions */,
-				BC06F122271B408100A2F171 /* Protocols */,
-				BC06F121271B407D00A2F171 /* Cells */,
 				BC06F120271B407100A2F171 /* View Models */,
 				BC06F11F271B406900A2F171 /* View Controllers */,
 			);
@@ -205,27 +201,6 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
-		BC06F121271B407D00A2F171 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		BC06F122271B408100A2F171 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		BC06F123271B408700A2F171 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		BC06F124271B408F00A2F171 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +212,7 @@
 		BC06F126271B414100A2F171 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				BC06F129271B4A9500A2F171 /* ContactManager.swift */,
+				BC06F129271B4A9500A2F171 /* ContactFetcher.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -489,7 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC06F12C271B4AB400A2F171 /* Contact.swift in Sources */,
-				BC06F12A271B4A9500A2F171 /* ContactManager.swift in Sources */,
+				BC06F12A271B4A9500A2F171 /* ContactFetcher.swift in Sources */,
 				BC06F0F1271B3B0800A2F171 /* MyContactsViewController.swift in Sources */,
 				BC06F128271B4A8400A2F171 /* ContactsViewModel.swift in Sources */,
 				BC06F0ED271B3B0800A2F171 /* AppDelegate.swift in Sources */,

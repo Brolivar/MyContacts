@@ -10,6 +10,8 @@ import XCTest
 
 class MyContactsTests: XCTestCase {
 
+    private var contactManager: ContactFetcherProtocol = ContactFetcher()
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -30,4 +32,43 @@ class MyContactsTests: XCTestCase {
         }
     }
 
+    func testContactsFetchSuccess() {
+        let ex = expectation(description: "Expecting a success return from the manager")
+
+        self.contactManager.requestContacts { result in
+            switch result {
+            case .success(_):
+                ex.fulfill()
+            case .failure(let error):
+                print("Contact request failed: ", error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 15) { (error) in
+            if let error = error {
+                XCTFail("Timeout error: \(error)")
+            }
+        }
+    }
+
+    func testContactsFetchisEmpty() {
+        let ex = expectation(description: "Expecting a success return from the manager")
+
+        self.contactManager.requestContacts { result in
+            switch result {
+            case .success(let contactList):
+                if contactList.isEmpty {
+                    print("Return object is nil")
+                } else {
+                    ex.fulfill()
+                }
+            case .failure(let error):
+                print("Contact request failed: ", error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 15) { (error) in
+            if let error = error {
+                XCTFail("Timeout error: \(error)")
+            }
+        }
+    }
 }
